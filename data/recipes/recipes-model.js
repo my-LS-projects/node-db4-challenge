@@ -24,5 +24,12 @@ function getShoppingList (id) {
 }
 
 function getInstructions (id) {
-    
+    // get instructions depending on recipe id
+    // select recipes.recipe_name, steps.description from steps join recipes on recipes.id = steps.recipe_id where recipes.id = 2 order by steps.step_number asc
+    return db.select('recipes.recipe_name', 'steps.description', 'steps.step_number')
+    .from('steps')
+    .join('recipes', function() {
+        this.on('recipes.id', '=', 'steps.recipe_id')
+    })
+    .where({'recipes.id': id})
 }
