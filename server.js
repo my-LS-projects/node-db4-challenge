@@ -1,6 +1,6 @@
-const express = require("express"); // import express
-// const router = require('') // import router
-const server = express(); // initialize server
+const express = require("express");
+// const router = require('');
+const server = express();
 const helmet = require("helmet");
 
 server.use(helmet());
